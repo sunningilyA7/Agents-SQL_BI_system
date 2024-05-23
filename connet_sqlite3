@@ -1,0 +1,30 @@
+import sqlite3
+conn = sqlite3.connect('test.db')
+cursor = conn.cursor()
+cursor.execute('''
+        CREATE TABLE DryGoods (
+            ID INTEGER PRIMARY KEY, 
+            Name TEXT NOT NULL, 
+            Type TEXT NOT NULL, 
+            Source TEXT NOT NULL, 
+            PurchasePrice REAL, 
+            SalePrice REAL
+        );
+    ''')
+
+  dry_goods = [
+    ('kelp', 'DryFood', 'liaoning', 5.2, 8.9),
+    ('mushroom', 'DryFood', 'guangdong', 26.5, 33.2),
+    ('black_fungus', 'DryFood', 'shandong', 34.6, 44.2)
+]
+
+
+for item in dry_goods:
+    cursor.execute('''
+        INSERT INTO DryGoods (Name, Type, Source, PurchasePrice, SalePrice) 
+        VALUES (?, ?, ?, ?, ?);
+    ''', item)
+
+conn.commit()
+
+conn.close()
