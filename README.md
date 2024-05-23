@@ -3,7 +3,8 @@
 Summary: using agents has higher accuracy than without it 
 
 
-1. connect sql (local)
+1.
+connect sql (local)
 
 
 import sqlite3
@@ -39,7 +40,8 @@ conn.close()
 
 
 
-2. connect langchain, also need openai key
+2.
+connect langchain, also need openai key
 
    
 import langchain
@@ -82,7 +84,9 @@ print(response)
 
 
 
-3. using agents methods
+3.
+
+using agents methods
 from langchain.agents.agent_toolkits import SQLDatabaseToolkit
  from langchain.agents.agent_types import AgentType
 agent_executor = create_sql_agent(
